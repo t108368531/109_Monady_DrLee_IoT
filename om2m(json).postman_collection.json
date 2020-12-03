@@ -1,0 +1,669 @@
+{
+	"info": {
+		"_postman_id": "ed7a8ecc-b8b4-4078-ab04-efb82d5f0c70",
+		"name": "om2m(json)",
+		"description": "使用json格式實現\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retrieve a resource (application/json)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET DATA contentinstance_最新一筆(application/json)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/LAMP_0/DATA/la",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"LAMP_0",
+						"DATA",
+						"la"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a \"form-postman-test_json\" application (application/json;ty=2)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;ty=2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n   \"m2m:ae\": {\n    \"rn\": \"form-postman-test_json\",\n     \"api\": \"app-sensor\",\n     \"lbl\": [\"Type/sensor\", \"Category/temperature\", \"Location/home\"],\n     \"rr\": \"false\"\n   }\n }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a DESCRIPTOR container (application/json;ty=3)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;ty=3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n     \"m2m:cnt\": {\n         \"rn\": \"DESCRIPTOR\"\n         }\n }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a DESCRIPTOR contentInstance (application/json;ty=4)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json;ty=4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"m2m:cin\": {\n   \"cnf\": \"application/xml\",\n    \"con\":\"<obj>\n    <str name=\\\"type\\\" val=\\\"Temperature_Sensor\\\"/>\n    <str name=\\\"location\\\" val=\\\"Home\\\"/>\n    <str name=\\\"appId\\\" val=\\\"from-node-red\\\"/>\n    <op name=\\\"getValue\\\" href=\\\"/mn-cse/mn-name/form-postman-test_json/DATA/la\\\"  in=\\\"obix:Nil\\\" out=\\\"obix:Nil\\\" is=\\\"retrieve\\\"/>\n    </obj>\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DESCRIPTOR",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DESCRIPTOR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a DATA container (application/json;ty=3)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;ty=3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n     \"m2m:cnt\": {\n         \"rn\": \"DATA\"\n         }\n }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a DATA contentInstance (application/json;ty=4)-con(xml)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json;ty=4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"m2m:cin\": {\n   \"cnf\": \"message\",\n    \"con\":\"<obj>\n        <str name=\\\"appId\\\" val=\\\"form-postman-test_json\\\"/>\n        <str name=\\\"category\\\" val=\\\"temperature\\\"/>\n        <int name=\\\"data\\\" val=\\\"27\\\"/>\n        <int name=\\\"unit\\\" val=\\\"celsius\\\"/>\n    </obj>\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe DATA  ( application/json;ty=23)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json;ty=23",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"m2m:sub\": {\n      \"rn\":\"SUB_MY_SENSOR\",\n      \"nu\":\"http://localhost:1880/notify\",\n      \"nct\":2\n    }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a DATA contentInstance (application/json;ty=4)-con(json)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json;ty=4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"m2m:cin\": {\n   \"cnf\": \"json\",\n    \"con\":\"{\n        \\\"appId\\\":\\\"form-postman-test_json\\\",\n        \\\"category\\\":\\\"temperature\\\",\n        \\\"data\\\":27,\n        \\\"unit\\\":\\\"celsius\\\"\n        }\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a DATA contentInstance (application/json;ty=4)-con(json)-other",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": " application/json;ty=4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"m2m:cin\": {\n   \"cnf\": \"application/json\",\n    \"con\":\"{\n  \\\"obj\\\": {\n    \\\"str\\\": [\n      {\n        \\\"@name\\\": \\\"appId\\\",\n        \\\"@val\\\": \\\"form-postman-test_json\\\"\n      },\n      {\n        \\\"@name\\\": \\\"category\\\",\n        \\\"@val\\\": \\\"temperature\\\"\n      }\n    ],\n    \\\"int\\\": [\n      {\n        \\\"@name\\\": \\\"data\\\",\n        \\\"@val\\\": 27\n      },\n      {\n        \\\"@name\\\": \\\"unit\\\",\n        \\\"@val\\\": \\\"celsius\\\"\n      }\n    ]\n  }\n}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_contentInstance_最新一筆(form-postman-test_json/DATA/la)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DATA/la",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DATA",
+						"la"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_contentInstance_最舊一筆(form-postman-test_json/DATA/ol) Copy 2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DATA/ol",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DATA",
+						"ol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_container(form-postman-test_json/DATA)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_contentInstance_最新一筆(form-postman-test_json/DESCRIPTOR/la)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DESCRIPTOR/la",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DESCRIPTOR",
+						"la"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_contentInstance_最舊一筆(form-postman-test_json/DESCRIPTOR/ol) Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DESCRIPTOR/ol",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DESCRIPTOR",
+						"ol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_container(form-postman-test_json/DESCRIPTOR)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json/DESCRIPTOR",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json",
+						"DESCRIPTOR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_application(form-postman-test_json)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/mn-cse/mn-name/form-postman-test_json",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"mn-cse",
+						"mn-name",
+						"form-postman-test_json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
